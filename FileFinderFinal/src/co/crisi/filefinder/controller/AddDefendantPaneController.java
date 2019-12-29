@@ -93,8 +93,14 @@ public class AddDefendantPaneController {
 					int pos = civilIndex.getPosDefendants(lastNamesDefendantField.getText().toUpperCase(),
 							namesDefendantField.getText().toUpperCase());
 					defendant = civilIndex.getDefendants().get(pos);
+					String nameApplicant = "";
+					if (applicantEntityRadioButton.isSelected())
+						nameApplicant = "ENTIDAD";
+					else
+						nameApplicant = namesApplicantField.getText().toUpperCase();
+
 					int posApplicant = civilIndex.getPosApplicant(lastNamesApplicantField.getText().toUpperCase(),
-							namesApplicantField.getText().toUpperCase());
+							nameApplicant);
 					applicant = civilIndex.getApplicants().get(posApplicant);
 					defendant.addCivilLocation(Long.parseLong(radField.getText()), Long.parseLong(folioField.getText()),
 							Long.parseLong(volumeField.getText()), applicant, processField.getText().toUpperCase());

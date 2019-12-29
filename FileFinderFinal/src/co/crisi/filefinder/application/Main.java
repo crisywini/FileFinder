@@ -1,11 +1,10 @@
 package co.crisi.filefinder.application;
 
 import java.io.File;
+
 import java.io.IOException;
 
 import co.crisi.filefinder.controller.MainPaneController;
-import co.crisi.filefinder.exceptions.DefendantRepeatedException;
-import co.crisi.filefinder.exceptions.ImputedRepeatedException;
 import co.crisi.filefinder.gui.Finder;
 import co.crisi.filefinder.model.CivilIndex;
 import co.crisi.filefinder.model.Defendant;
@@ -53,21 +52,6 @@ public class Main extends Application implements IFileFinderControl {
 		loadMainPane(primaryStage);
 	}
 
-	public void addMillion() {
-		for (int i = 0; i < 10000; i++) {
-			try {
-				fileFinder.getCivilIndex().addDefendant("Defendant" + i, i + "defendant");
-			} catch (DefendantRepeatedException e) {
-				e.printStackTrace();
-			}
-			try {
-				fileFinder.getPenalIndex().addImputed(i + "imputed", "imputed" + i);
-			} catch (ImputedRepeatedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
 	public void loadMainPane(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -83,7 +67,7 @@ public class Main extends Application implements IFileFinderControl {
 			primaryStage.setMinHeight(700);
 			primaryStage.setTitle("File Finder");
 			primaryStage.setOnCloseRequest(closer);
-			primaryStage.getIcons().add(new Image("file:resources\\images\\searcher2.png"));
+			primaryStage.getIcons().add(new Image(getClass().getResource("searcher2.png").toExternalForm()));
 			primaryStage.setMaximized(true);
 			primaryStage.show();
 		} catch (Exception e) {
