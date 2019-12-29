@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="555.0" prefWidth="650.0" style="-fx-background-color: #1d1d1d;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.crisi.filefinder.controller.AddImputedPaneController">
+<VBox alignment="CENTER" prefHeight="555.0" prefWidth="650.0" style="-fx-background-color: #1d1d1d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.crisi.filefinder.controller.AddImputedPaneController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <children>
@@ -104,7 +104,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <ComboBox fx:id="typeFunctionComboBox" prefWidth="150.0" promptText="Tipo de función" />
+                  <ComboBox fx:id="typeFunctionComboBox" prefHeight="25.0" prefWidth="234.0" promptText="Tipo de función" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1">

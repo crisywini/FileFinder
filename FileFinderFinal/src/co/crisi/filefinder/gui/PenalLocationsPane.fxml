@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="555.0" prefWidth="650.0" style="-fx-background-color: #1d1d1d;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.crisi.filefinder.controller.PenalLocationsPaneController">
+<VBox alignment="CENTER" prefHeight="555.0" prefWidth="650.0" style="-fx-background-color: #1d1d1d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.crisi.filefinder.controller.PenalLocationsPaneController">
    <children>
       <GridPane alignment="CENTER" VBox.vgrow="ALWAYS">
         <columnConstraints>

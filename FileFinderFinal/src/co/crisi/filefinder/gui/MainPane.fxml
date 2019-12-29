@@ -5,8 +5,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane fx:id="mainPane" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #1d1d1d; -fx-font-size: 11.0pt; -fx-font-family: &quot;Segoe UI Semibold&quot;;" stylesheets="@application.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<BorderPane fx:id="mainPane" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #1d1d1d; -fx-font-size: 11.0pt; -fx-font-family: &quot;Segoe UI Semibold&quot;;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.crisi.filefinder.controller.MainPaneController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
