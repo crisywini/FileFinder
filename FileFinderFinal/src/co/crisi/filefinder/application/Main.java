@@ -70,13 +70,11 @@ public class Main extends Application implements IFileFinderControl {
 
 	public void loadMainPane(Stage primaryStage) {
 		try {
-			BorderPane root;
 			FXMLLoader loader = new FXMLLoader();
-			loader.setRoot(Finder.class.getResource("MainPane.fxml"));
 			loader.setLocation(Finder.class.getResource("MainPane.fxml"));
-			root = (BorderPane) loader.load();
+			BorderPane root = (BorderPane) loader.load();
 			Scene scene = new Scene(root);
-			scene.setRoot(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			MainPaneController mainController = loader.getController();
 			mainController.setMain(this);
 			mainController.setPrimaryStage(primaryStage);
