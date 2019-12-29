@@ -17,11 +17,11 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+
 /**
  * 
- * @author Cristian Giovanny Sánchez Pineda 
- *  cellphone: 321-937-3570 
- *  g-mail: harmaharcri.cs@gmail.com
+ * @author Cristian Giovanny Sánchez Pineda cellphone: 321-937-3570 g-mail:
+ *         harmaharcri.cs@gmail.com
  *
  */
 public class AddDefendantPaneController {
@@ -44,6 +44,12 @@ public class AddDefendantPaneController {
 
 	@FXML
 	private ToggleGroup toggleGroup;
+	@FXML
+	private ToggleGroup toggleGroupApplicant;
+	@FXML
+	private RadioButton applicantEntityRadioButton;
+	@FXML
+	private RadioButton applicantPersonRadioButton;
 
 	@FXML
 	private RadioButton entityRadioButton;
@@ -78,8 +84,12 @@ public class AddDefendantPaneController {
 				try {
 					civilIndex.addDefendant(namesDefendantField.getText().toUpperCase(),
 							lastNamesDefendantField.getText().toUpperCase());
-					civilIndex.addApplicant(namesApplicantField.getText().toUpperCase(),
-							lastNamesApplicantField.getText().toUpperCase());
+					if (applicantEntityRadioButton.isSelected()) {
+						civilIndex.addApplicant("ENTIDAD", lastNamesApplicantField.getText().toUpperCase());
+					} else {
+						civilIndex.addApplicant(namesApplicantField.getText().toUpperCase(),
+								lastNamesApplicantField.getText().toUpperCase());
+					}
 					int pos = civilIndex.getPosDefendants(lastNamesDefendantField.getText().toUpperCase(),
 							namesDefendantField.getText().toUpperCase());
 					defendant = civilIndex.getDefendants().get(pos);
@@ -115,12 +125,22 @@ public class AddDefendantPaneController {
 			} else {
 				try {
 					civilIndex.addDefendant("ENTIDAD", lastNamesDefendantField.getText().toUpperCase());
-					civilIndex.addApplicant(namesApplicantField.getText().toUpperCase(),
-							lastNamesApplicantField.getText().toUpperCase());
+					if (applicantEntityRadioButton.isSelected()) {
+						civilIndex.addApplicant("ENTIDAD", lastNamesApplicantField.getText().toUpperCase());
+					} else {
+						civilIndex.addApplicant(namesApplicantField.getText().toUpperCase(),
+								lastNamesApplicantField.getText().toUpperCase());
+					}
 					int pos = civilIndex.getPosDefendants(lastNamesDefendantField.getText().toUpperCase(), "ENTIDAD");
 					defendant = civilIndex.getDefendants().get(pos);
+					String nameApplicant = "";
+					if (applicantEntityRadioButton.isSelected())
+						nameApplicant = "ENTIDAD";
+					else
+						nameApplicant = namesApplicantField.getText().toUpperCase();
+
 					int posApplicant = civilIndex.getPosApplicant(lastNamesApplicantField.getText().toUpperCase(),
-							namesApplicantField.getText().toUpperCase());
+							nameApplicant);
 					applicant = civilIndex.getApplicants().get(posApplicant);
 					defendant.addCivilLocation(Long.parseLong(radField.getText()), Long.parseLong(folioField.getText()),
 							Long.parseLong(volumeField.getText()), applicant, processField.getText().toUpperCase());
@@ -187,6 +207,8 @@ public class AddDefendantPaneController {
 		}
 		if (!personRadioButton.isSelected() && !entityRadioButton.isSelected())
 			errorMessage += "Debe seleccionar si el demandado es una persona o una entidad\n";
+		if (!applicantEntityRadioButton.isSelected() && !applicantPersonRadioButton.isSelected())
+			errorMessage += "Debe seleccionar si el demandante es una persona o una entidad\n";
 		if (radField.getText().isEmpty())
 			errorMessage += "Debe ingresar la radicación\n";
 		else
@@ -216,7 +238,8 @@ public class AddDefendantPaneController {
 		if (lastNamesApplicantField.getText().isEmpty())
 			errorMessage += "Debe ingresar los apellidos del demandante\n";
 		if (namesApplicantField.getText().isEmpty())
-			errorMessage += "Debe ingresar los nombres del demandante\n";
+			if (applicantPersonRadioButton.isSelected())
+				errorMessage += "Debe ingresar los nombres del demandante\n";
 		if (errorMessage.isEmpty())
 			isValid = true;
 		else

@@ -19,11 +19,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
+
 /**
  * 
- * @author Cristian Giovanny Sánchez Pineda 
- *  cellphone: 321-937-3570 
- *  g-mail: harmaharcri.cs@gmail.com
+ * @author Cristian Giovanny Sánchez Pineda cellphone: 321-937-3570 g-mail:
+ *         harmaharcri.cs@gmail.com
  *
  */
 public class AddImputedPaneController {
