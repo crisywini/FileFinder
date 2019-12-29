@@ -78,6 +78,7 @@
     -fx-background-color: derive(#1d1d1d,50.0%);
 }
 
+
 .menu-bar .label {
     -fx-font-size: 10.0pt;
     -fx-font-family: "Segoe UI Light";
@@ -94,6 +95,7 @@
     -fx-font-family: "Segoe UI Semibold";
     -fx-background-color: gray;
 }
+
 
 /* 
  * Metro style Push Button
@@ -137,7 +139,7 @@
 
 .button:default {
     -fx-background-color: -fx-focus-color;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: white;
 }
 
 .button:default:hover {
@@ -157,4 +159,13 @@
     -fx-font-size: 10.0pt;
     -fx-text-fill: #d8d8d8;
 }
+.dialog-pane{
+	-fx-border-width: 1.0px;
+    -fx-border-color: #000;
+    -fx-background-color: #1d1d1d;
+     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 10.0pt;
+    -fx-text-fill: #d8d8d8;
+}
+
 
